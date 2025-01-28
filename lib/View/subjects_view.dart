@@ -89,11 +89,3 @@ class _SubjectsViewState extends State<SubjectsView> {
     );
   }
 }
-TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    );
-  }
-}
