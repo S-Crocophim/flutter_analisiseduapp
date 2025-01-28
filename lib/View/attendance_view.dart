@@ -1,3 +1,11 @@
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:3731656355.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:2855362685.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:1315794036.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:3184644275.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:3129517202.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:1665778888.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:3764047475.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:1761141207.
 import 'package:flutter/material.dart';
 import '../Controller/attendance_controller.dart';
 
@@ -16,34 +24,51 @@ class _AttendanceViewState extends State<AttendanceView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Attendance"),
-        leading: Icon(Icons.menu),
+        title: const Text("Attendance"),
+        leading: const Icon(Icons.menu),
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.notifications)),
-          IconButton(onPressed: () {}, icon: Icon(Icons.person)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.notifications)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.person)),
         ],
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.blue, Colors.purple],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+        ),
       ),
-      body: Padding(
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.white, Color.fromARGB(255, 228, 227, 227)],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
+        child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+              const Text(
               "Hi Iqbal,",
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 8),
+              const SizedBox(height: 8),
             Text(
               "You have missed ${_controller.model.totalMissedAttendance} attendance!",
-              style: TextStyle(fontSize: 16, color: Colors.red),
+                style: const TextStyle(fontSize: 16, color: Colors.red),
             ),
-            SizedBox(height: 20),
+              const SizedBox(height: 20),
             // Tabel Attendance
             Expanded(
               child: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
                 child: DataTable(
-                  columns: [
+                    columns: const [
                     DataColumn(label: Text("No")),
                     DataColumn(label: Text("Subject Name")),
                     DataColumn(label: Text("Attendance")),
@@ -57,10 +82,10 @@ class _AttendanceViewState extends State<AttendanceView> {
                           cells: [
                             DataCell(Text((entry.key + 1).toString())),
                             DataCell(Text(entry.value.subjectName)),
-                            DataCell(
-                                Text(entry.value.attendanceCount.toString())),
-                            DataCell(
-                                Text(entry.value.notPresentCount.toString())),
+                              DataCell(Text(
+                                  entry.value.attendanceCount.toString())),
+                              DataCell(Text(
+                                  entry.value.notPresentCount.toString())),
                           ],
                         ),
                       )
@@ -69,6 +94,7 @@ class _AttendanceViewState extends State<AttendanceView> {
               ),
             ),
           ],
+          ),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -76,7 +102,7 @@ class _AttendanceViewState extends State<AttendanceView> {
         onTap: (index) {
           // Aksi ketika item di bottomNavigationBar ditekan
         },
-        items: [
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
