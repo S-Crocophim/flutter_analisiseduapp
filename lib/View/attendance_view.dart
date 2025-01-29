@@ -1,11 +1,3 @@
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:3731656355.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:2855362685.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:1315794036.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:3184644275.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:3129517202.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:1665778888.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:3764047475.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:1761141207.
 import 'package:flutter/material.dart';
 import '../Controller/attendance_controller.dart';
 
@@ -49,51 +41,51 @@ class _AttendanceViewState extends State<AttendanceView> {
           ),
         ),
         child: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
               const Text(
-              "Hi Iqbal,",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
+                "Hi Iqbal,",
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
               const SizedBox(height: 8),
-            Text(
-              "You have missed ${_controller.model.totalMissedAttendance} attendance!",
+              Text(
+                "You have missed ${_controller.model.totalMissedAttendance} attendance!",
                 style: const TextStyle(fontSize: 16, color: Colors.red),
-            ),
+              ),
               const SizedBox(height: 20),
-            // Tabel Attendance
-            Expanded(
-              child: SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                child: DataTable(
+              // Tabel Attendance
+              Expanded(
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: DataTable(
                     columns: const [
-                    DataColumn(label: Text("No")),
-                    DataColumn(label: Text("Subject Name")),
-                    DataColumn(label: Text("Attendance")),
-                    DataColumn(label: Text("Not Present")),
-                  ],
-                  rows: _controller.model.subjectsAttendance
-                      .asMap()
-                      .entries
-                      .map(
-                        (entry) => DataRow(
-                          cells: [
-                            DataCell(Text((entry.key + 1).toString())),
-                            DataCell(Text(entry.value.subjectName)),
-                              DataCell(Text(
-                                  entry.value.attendanceCount.toString())),
-                              DataCell(Text(
-                                  entry.value.notPresentCount.toString())),
-                          ],
-                        ),
-                      )
-                      .toList(),
+                      DataColumn(label: Text("No")),
+                      DataColumn(label: Text("Subject Name")),
+                      DataColumn(label: Text("Attendance")),
+                      DataColumn(label: Text("Not Present")),
+                    ],
+                    rows: _controller.model.subjectsAttendance
+                        .asMap()
+                        .entries
+                        .map(
+                          (entry) => DataRow(
+                            cells: [
+                              DataCell(Text((entry.key + 1).toString())),
+                              DataCell(Text(entry.value.subjectName)),
+                              DataCell(
+                                  Text(entry.value.attendanceCount.toString())),
+                              DataCell(
+                                  Text(entry.value.notPresentCount.toString())),
+                            ],
+                          ),
+                        )
+                        .toList(),
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
           ),
         ),
       ),
